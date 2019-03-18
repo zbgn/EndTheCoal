@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player2 : MonoBehaviour
+public class Player2 : PlayerBase
 {
     // Start is called before the first frame update
     void Start()
@@ -13,6 +13,6 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckInputs();
     }
 }

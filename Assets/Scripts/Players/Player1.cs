@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1 : MonoBehaviour
+public class Player1 : PlayerBase
 {
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,8 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckInputs();
     }
+
+
 }
