@@ -13,6 +13,7 @@ public class PlayerBase : MonoBehaviour
 
     protected virtual void CheckInputs()
     {
+        // ACTIONS
         if (Input.GetKeyDown(this._JumpKey))
         {
             Jump();
@@ -21,6 +22,7 @@ public class PlayerBase : MonoBehaviour
         {
 
         }
+
         if (Input.GetKey(this._MoveRightKey))
         {
             MoveRight();
@@ -29,9 +31,15 @@ public class PlayerBase : MonoBehaviour
         {
             MoveLeft();
         }
-        else
+
+        // ANIMATIONS
+        if ((Input.GetKeyDown(this._MoveLeftKey)) || (Input.GetKeyDown(this._MoveRightKey)))
         {
-            AnimateIdle();
+            this.AnimateSprint();
+        }
+        if ((Input.GetKeyUp(this._MoveLeftKey)) || (Input.GetKeyUp(this._MoveRightKey)))
+        {
+            this.AnimateIdle();
         }
     }
 
@@ -56,14 +64,12 @@ public class PlayerBase : MonoBehaviour
 
     protected virtual void MoveRight()
     {
-        this.AnimateSprint();
-        Debug.LogWarning("MUST OVERRIDE MOVE RIGHT");
+        //Debug.LogWarning("MUST OVERRIDE MOVE RIGHT");
     }
 
     protected virtual void MoveLeft()
     {
-        this.AnimateSprint();
-        Debug.LogWarning("MUST OVERRIDE MVOE LEFT");
+        //Debug.LogWarning("MUST OVERRIDE MVOE LEFT");
     }
 
     /* TO PLAY ANIMATIONS */
