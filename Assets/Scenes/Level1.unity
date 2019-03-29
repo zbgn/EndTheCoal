@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 71295906}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 243664006}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -584,6 +584,33 @@ Transform:
   m_Father: {fileID: 1419425897}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &399917753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8630806328423243532, guid: 39cbb7c6c12fdb148a09efef5f49584d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1089510102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &399917756
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399917753}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 6
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &467473838
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,6 +1017,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player__2
       objectReference: {fileID: 0}
+    - target: {fileID: 8630806328423243532, guid: 39cbb7c6c12fdb148a09efef5f49584d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 88847858055453207, guid: 39cbb7c6c12fdb148a09efef5f49584d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1045,8 +1077,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4892558876901078380, guid: 39cbb7c6c12fdb148a09efef5f49584d,
+        type: 3}
+      propertyPath: PlayerSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892558876901078380, guid: 39cbb7c6c12fdb148a09efef5f49584d,
+        type: 3}
+      propertyPath: JumpHeight
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39cbb7c6c12fdb148a09efef5f49584d, type: 3}
+--- !u!1 &1270562225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2128449105674823657, guid: f9567afa91ab0da4f92ab4a60cad3895,
+    type: 3}
+  m_PrefabInstance: {fileID: 6112760168708628335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1270562228
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270562225}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 6
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &1392554485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1705,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player__1
       objectReference: {fileID: 0}
+    - target: {fileID: 2128449105674823657, guid: f9567afa91ab0da4f92ab4a60cad3895,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4998509139853272914, guid: f9567afa91ab0da4f92ab4a60cad3895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1690,6 +1764,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 327760223030271736, guid: f9567afa91ab0da4f92ab4a60cad3895,
+        type: 3}
+      propertyPath: PlayerSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 327760223030271736, guid: f9567afa91ab0da4f92ab4a60cad3895,
+        type: 3}
+      propertyPath: JumpHeight
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9567afa91ab0da4f92ab4a60cad3895, type: 3}

@@ -232,8 +232,7 @@ public class AudioManager : MonoBehaviour {
             Instance.GetComponent<AudioManager>().Init();
             return Instance.GetComponent<AudioManager>();
         }
-        else
-            return Instance;
+        return Instance;
     }
 
     // CALL THIS FUNC TO PLAY A ADUIO FILE / REPLACE EXISTING AUDIO INSTANCE
@@ -287,14 +286,19 @@ public class AudioManager : MonoBehaviour {
     // CALCULATE AN INSTANCE VOLUME WITH CURRENT PLAYER SETTINGS
     public float CalculateVolume(float BaseVolume, AudioSourceType Type)
     {
-        if (Type == AudioSourceType.Music)
-            return BaseVolume * _GeneralVolume * _MusicVolume;
-        else if (Type == AudioSourceType.Sound)
-            return BaseVolume * _GeneralVolume * _SoundVolume;
-        else if (Type == AudioSourceType.UI)
-            return BaseVolume * _GeneralVolume * _UIVolume;
-        else
-            return BaseVolume * _GeneralVolume * _VoiceVolume;
+        switch (Type)
+        {
+            case AudioSourceType.Music:
+                return BaseVolume * _GeneralVolume * _MusicVolume;
+            case AudioSourceType.Sound:
+                return BaseVolume * _GeneralVolume * _SoundVolume;
+            case AudioSourceType.UI:
+                return BaseVolume * _GeneralVolume * _UIVolume;
+            case AudioSourceType.Voice:
+                return BaseVolume * _GeneralVolume * _VoiceVolume; ;
+            default:
+                return BaseVolume * _GeneralVolume;
+        }
     }
 
 
@@ -324,8 +328,7 @@ public class AudioManager : MonoBehaviour {
     {
         if (this.transform.Find(AudioId) != null)
             return true;
-        else
-            return false;
+        return false;
     }
 
 }

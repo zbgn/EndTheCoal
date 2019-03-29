@@ -10,6 +10,9 @@ public class PlayerBase : MonoBehaviour
     public KeyCode _JumpKey;
     public KeyCode _ActivateKey;
     public Animator _Animator;
+    public float PlayerSpeed = 5;
+    public float JumpHeight = 30;
+    private bool _FacingRight = true;
 
     protected virtual void CheckInputs()
     {
@@ -20,15 +23,17 @@ public class PlayerBase : MonoBehaviour
         }
         if (Input.GetKeyDown(this._ActivateKey))
         {
-
+            Activate();
         }
 
         if (Input.GetKey(this._MoveRightKey))
         {
+            Flip(1);
             MoveRight();
         }
         else if (Input.GetKey(this._MoveLeftKey))
         {
+            Flip(-1);
             MoveLeft();
         }
 
@@ -69,10 +74,21 @@ public class PlayerBase : MonoBehaviour
 
     protected virtual void MoveLeft()
     {
-        //Debug.LogWarning("MUST OVERRIDE MVOE LEFT");
+        //Debug.LogWarning("MUST OVERRIDE MOVE LEFT");
     }
 
     /* TO PLAY ANIMATIONS */
+    protected void Flip(int direction)
+    {
+        if ((!_FacingRight && direction > 0) || (_FacingRight && direction < 0))
+        {
+            _FacingRight = !_FacingRight;
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
+        }
+    }
+
     protected void AnimateJump()
     {
         this._Animator.SetBool("_IsJumping", true);
@@ -99,5 +115,25 @@ public class PlayerBase : MonoBehaviour
     {
         this._Animator.SetBool("_IsSprinting", false);
         this._Animator.SetBool("_IsWalking", false);
+    }
+
+    // Get the closest <tag> object
+    public GameObject FindClosest(string tag)
+    {
+        GameObject[] gos = GameObject.FindGameObjectsWithTag(tag);
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
     }
 }
