@@ -13,6 +13,18 @@ public class PlayerBase : MonoBehaviour
     public float PlayerSpeed = 5;
     public float JumpHeight = 30;
     private bool _FacingRight = true;
+    [SerializeField]
+    protected MachineInterface _machine;
+
+    public void enableInteraction(MachineInterface machine)
+    {
+        this._machine = machine;
+    }
+
+    public void disableInteraction()
+    {
+        this._machine = null;
+    }
 
     protected virtual void CheckInputs()
     {

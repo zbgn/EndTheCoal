@@ -110,9 +110,10 @@ GameObject:
   - component: {fileID: 88847858055453207}
   - component: {fileID: 4892558876901078380}
   - component: {fileID: 4005898223688800370}
+  - component: {fileID: 399917756}
   m_Layer: 0
   m_Name: Player__2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,6 +150,8 @@ MonoBehaviour:
   _JumpKey: 273
   _ActivateKey: 43
   _Animator: {fileID: 2613419882593132681}
+  PlayerSpeed: 5
+  JumpHeight: 40
 --- !u!61 &4005898223688800370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,7 +165,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.77478886}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -173,5 +176,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 4}
+  m_Size: {x: 1.5, y: 3.4504223}
   m_EdgeRadius: 0
+--- !u!50 &399917756
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630806328423243532}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 5.1756334
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
