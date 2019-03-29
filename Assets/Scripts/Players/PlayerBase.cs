@@ -136,4 +136,14 @@ public class PlayerBase : MonoBehaviour
         }
         return closest;
     }
+
+    protected bool IsGrounded()
+    {
+        if (
+            (this.GetComponent<Rigidbody2D>().velocity.y < 0.1f) &&
+            (this.GetComponent<Rigidbody2D>().velocity.y > -0.1f))
+            return true;
+        else
+            return false;
+    }
 }

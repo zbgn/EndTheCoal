@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player2 : PlayerBase
 {
     private Rigidbody2D player;
-    protected bool grounded = true;
     protected bool interactable;
 
     // Start is called before the first frame update
@@ -32,7 +31,7 @@ public class Player2 : PlayerBase
 
     protected override void Jump()
     {
-        if (grounded)
+        if (IsGrounded())
         {
             AnimateJump();
             player.AddForce(Vector2.up * JumpHeight, ForceMode2D.Impulse);
@@ -51,9 +50,8 @@ public class Player2 : PlayerBase
     // Trigers
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        grounded |= collision.gameObject.tag == "floor";
         interactable |= collision.gameObject.tag == "interact";
-        if (grounded)
+        if (IsGrounded())
         {
             AnimateStopJump();
         }
@@ -61,7 +59,6 @@ public class Player2 : PlayerBase
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        grounded &= collision.gameObject.tag != "floor";
         interactable &= collision.gameObject.tag != "interact";
     }
 }
