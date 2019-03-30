@@ -16,6 +16,11 @@ public class PlayerBase : MonoBehaviour
     [SerializeField]
     protected MachineInterface _machine;
 
+    public MachineInterface GetMachine()
+    {
+        return this._machine;
+    }
+
     public void enableInteraction(MachineInterface machine)
     {
         this._machine = machine;
@@ -31,7 +36,7 @@ public class PlayerBase : MonoBehaviour
         // ACTIONS
         if (Input.GetKeyDown(this._JumpKey))
         {
-            Jump();
+            Jump(1.0f);
         }
         if (Input.GetKeyDown(this._ActivateKey))
         {
@@ -54,14 +59,14 @@ public class PlayerBase : MonoBehaviour
         {
             this.AnimateSprint();
         }
-        if ((Input.GetKeyUp(this._MoveLeftKey)) || (Input.GetKeyUp(this._MoveRightKey)))
+        if (!(Input.GetKey(this._MoveLeftKey) || Input.GetKey(this._MoveRightKey)))
         {
             this.AnimateIdle();
         }
     }
 
     /* EXECUTE ACTIONS */
-    protected virtual void Jump()
+    public virtual void Jump(float JumpHeight)
     {
         this.AnimateJump();
         StartCoroutine(StopJump());

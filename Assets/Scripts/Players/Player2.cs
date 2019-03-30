@@ -29,12 +29,12 @@ public class Player2 : PlayerBase
         transform.Translate(Vector2.right * PlayerSpeed * Time.deltaTime);
     }
 
-    protected override void Jump()
+    public override void Jump(float JJ)
     {
         if (IsGrounded())
         {
             AnimateJump();
-            player.AddForce(Vector2.up * JumpHeight, ForceMode2D.Impulse);
+            player.AddForce(Vector2.up * JumpHeight * JJ, ForceMode2D.Impulse);
         }
     }
 
