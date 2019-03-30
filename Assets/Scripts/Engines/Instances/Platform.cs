@@ -9,7 +9,11 @@ public class Platform : MachineInterface
     {
         if (GameObject.FindObjectOfType<Player2>().GetMachine().GetMachineType() == MachineType.JUMPER)
         {
-            GameObject.FindObjectOfType<Player2>().GetComponent<Player2>().Jump(5.0f);
+            GameObject.FindObjectOfType<Player2>().GetComponent<Player2>().Jump(3.0f);
+        }
+        else
+        {
+            Debug.Log("Player 2 Not Jumper");
         }
     }
 

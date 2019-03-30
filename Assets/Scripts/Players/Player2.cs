@@ -40,10 +40,9 @@ public class Player2 : PlayerBase
 
     protected override void Activate()
     {
-        if (interactable)
+        if (_machine != null)
         {
-            GameObject interaction = FindClosest("interact");
-            interaction.GetComponent<InteractionBase>().Action();
+            _machine.Activate();
         }
     }
 
